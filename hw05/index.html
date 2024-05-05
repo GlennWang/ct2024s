@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="zh-Hant-TW">
 <head>
@@ -178,14 +179,20 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      該次作業程式碼，請放在 https://github.com/<span style="color:red;">你的帳號</span>/ct2024s/hw<span style="color:red;">05</span>/src/ 檔案夾。
+      該次作業程式碼，請放在<br>
+      https://github.com/<span style="color:red;">你的帳號</span>/ct2024s/hw<span style="color:red;">05</span>/<span style="color:red;">Simple</span>。<br>
+      https://github.com/<span style="color:red;">你的帳號</span>/ct2024s/hw<span style="color:red;">05</span>/<span style="color:red;">Medium</span>。<br>
+      https://github.com/<span style="color:red;">你的帳號</span>/ct2024s/hw<span style="color:red;">05</span>/<span style="color:red;">Strong</span>。
     </div>
   </div>
 
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。
+      這一次的作業是要利用手寫的少量字體生成完整的手寫字型檔，主要是用一個叫做zi2zi的專案，將手寫字訓練、取得權重、取得字到字成果。
+      雖然簡報上說跑約一天，然而我跑了三天才跑完，應該是因為顯卡沒有很好。
+      然後推論出來的結果是一堆歪七扭八的神祕字體。
+      看起來是完全失敗了的樣子，但因為沒看過成功的案例所以也不知道到底算好還壞。
     </div>
   </div>
 
@@ -201,19 +208,24 @@
         </tr>
         <tr>
           <td rowspan="7" id="myTotal"></td>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox1"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked></td>
           <td id='m1'>2</td>
-          <td>Simple baseline - 描述、描述、描述</td>
+          <td>Simple baseline - 產生訓練樣本 (4808字/2) (放入image_train，壓縮檔上傳)</td>
         </tr>
         <tr>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked></td>
-          <td id='m2'>6</td>
-          <td>Medium baseline - 描述、描述、描述 </td>
+          <td id='m2'>2</td>
+          <td>Simple baseline - 產生驗證樣本 (4808字/2) (放入image_val，壓縮檔上傳)</td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox3"></td>
-          <td id='m3'>2</td>
-          <td>Strong baseline - 描述、描述、描述 </td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked></td>
+          <td id='m3'>4</td>
+          <td>Medium baseline - 繳交字體的對比檔案 (以 experiment_學號_姓名.zip 命名) </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked></td>
+          <td id='m4'>2</td>
+          <td>Strong baseline - 最後生成結果 (於infer_1資料夾內)</td>
         </tr>
       </table>
     </div>
@@ -221,14 +233,36 @@
 
   <!-- ------------------------------------------------>
   <div class="row hw12">
-    <div class="col-md-12 twenty">
-      <video id="video1" style="width:100%;max-width:100%;" controls="">
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-      </video>
+    <div class="col-md-12 twenty">    
+      <img src="./train.png" width="1200px" height="600px"/>  
+    </div>
+  </div>
+  
+   <div class="row hw12">
+    <div class="col-md-12 twenty">          
+      <img src="./val.png" width="1200px" height="600px"/>
+      
     </div>
   </div>
 
   <!-- ------------------------------------------------>
+
+  <div class="row hw12">
+    <div class="col-md-12 twenty">    
+      <h1>Medium Baseline</h1>
+      <a href="https://drive.google.com/file/d/11uXkMAlVrIqSoYR4e1xpacWewGj07z6V/view?usp=sharing" download="experiment_109590003">Download experiment_109590003_王毓謙</a>
+      
+    </div>
+  </div>
+
+  <!-- ------------------------------------------------>
+  <div class="row hw12">
+    <div class="col-md-12 twenty">    
+      <h1>Strong Baseline</h1>
+      <a href="https://drive.google.com/file/d/1brNcCe_mXB_sL9_hfwRiS7YCX2O0BXTX/view?usp=sharing" download="infer_109590003">Download infer_109590003_王毓謙</a>
+      
+    </div>
+  </div>
 
   <!-- ------------------------------------------------>
 
@@ -265,6 +299,10 @@
 
     if (d3.select("#myCheckbox3").property("checked")){
       score += parseInt(d3.select('#m3').html());   
+    }
+
+    if (d3.select("#myCheckbox4").property("checked")){
+      score += parseInt(d3.select('#m4').html());   
     }
 
     d3.select("#myTotal").html(score);    
